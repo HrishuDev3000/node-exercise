@@ -1,12 +1,16 @@
 import express from "express";
 import config from "./config";
-// TODO: import router from routes/
 import router from "./routes/index.js";
+import morgan from "morgan";
 
 const app = express();
 
 //middleware
 app.use(express.json());
+
+//app.use(express.static(path.join(_dirname, "./public")))
+
+app.use(morgan("common"));
 
 // TODO: use the imported router to handle all requests
 app.use("/api", router);
